@@ -63,11 +63,13 @@ async def generate_languages(s: Stats) -> None:
     delay_between = 150
 
     progress_sum = 0
-    minumum_percentage = 2
+    minimum_percentage = 3
+    other_index = 0
 
     for i, (lang, data) in enumerate(sorted_languages):
-        if data.get("prop", 0) < minumum_percentage:
-            break;
+        if data.get("prop", 0) < minimum_percentage:
+            other_index = i
+            break
 
         progress_sum += data.get("prop", 0)
         color = data.get("color")
@@ -87,7 +89,7 @@ fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8z"></path></svg>
 """
 
     lang_list += f"""
-<li style="animation-delay: {len(sorted_languages) * delay_between}ms;">
+<li style="animation-delay: {other_index * delay_between}ms;">
 <svg xmlns="http://www.w3.org/2000/svg" class="octicon" style="fill:#586069;"
 viewBox="0 0 16 16" version="1.1" width="16" height="16"><path
 fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8z"></path></svg>
