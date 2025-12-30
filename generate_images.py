@@ -65,7 +65,7 @@ async def generate_languages(s: Stats) -> None:
     delay_between = 150
 
     progress_sum = 0
-    minimum_percentage = 3
+    minimum_percentage = 1
     other_index = 0
 
     for i, (lang, data) in enumerate(sorted_languages):
@@ -152,3 +152,4 @@ async def main() -> None:
 
 if __name__ == "__main__":
     asyncio.run(main())
+
